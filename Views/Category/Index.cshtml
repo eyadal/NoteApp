@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="WorkoutHead">
+    <h3>Whether you want to get stronger,</h3>
+    <h4>faster or maybe more agile,</h4>
+    <h5>there is a workout for you.</h5>
+</div>
+    
+
+<table class="table table-bordered table-striped" style="width:80%">
+    <thead>
+        <tr>
+            <th>
+                Workouts
+            </th>
+            <th>
+                 Participants
+            </th>
+            <th>
+                 Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="30%">
+                    @obj.Workout
+                </td>
+                <td width="30%">
+                    @obj.Participant
+                </td>
+                <td width="10%">
+                    @obj.CreatedDateTime
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

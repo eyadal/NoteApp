@@ -16,3 +16,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+.WorkoutHead {
+    color: rgb(43, 180, 104);
+    padding: 40px 0px 40px 0px;
+}
+.ProgramHead {
+    width: 20%;
+    border: solid 1px black;
+    margin-top: 10px;
+    padding: 5px;
+}

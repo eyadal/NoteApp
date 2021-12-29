@@ -7,8 +7,8 @@ namespace NoteApp.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string CategoryType { get; set; }
-        public int DisplayOrder { get; set; }
+        public string Workout { get; set; }
+        public int Participant { get; set; }
         public DateTime CreatedDateTime { get; set; } = DateTime.Now;
 
     }

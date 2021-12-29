@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Note>
+@{
+    ViewData["Title"] = "NoteView";
+}
+<h3 class="WorkoutHead">“No matter how slow you go you’re still lapping everyone on the couch.”</h3>
+<h4 class="WorkoutHead">Gym Program</h4>
+
+
+        @foreach(var obj in Model)
+        {
+            <div class="ProgramHead" width="30%">
+               <h5>
+                    @obj.NoteTitle
+                </h5>
+                 <p>
+                    @obj.NoteText
+                    </p>
+                    <p>
+                    @obj.Day
+                    </p>
+            </div>
+        }
+
+

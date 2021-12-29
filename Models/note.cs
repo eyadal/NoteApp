@@ -7,6 +7,7 @@ namespace NoteApp.Models
         [Key]
         public int Id { get; set; }
         public string NoteTitle { get; set; }
-        public string NoteBody { get; set; }
+        public string NoteText { get; set; }
+        public string Day { get; set; }
     }
 }
