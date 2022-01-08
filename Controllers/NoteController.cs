@@ -12,16 +12,25 @@ namespace NoteApp.Controllers;
         {
             _db = db;
         }
+        // retrieve all the notes information from the tables.
         public IActionResult NoteView()
         {
-            // retrieve all the notes information from the tables.
             IEnumerable<Note> objNoteList = _db.Notes;
             return View(objNoteList);
         }
-
+        // Get
         public IActionResult CreateProgram()
-    {
-        return View();
-    }
+        {
+            return View();
+        }
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateProgram(Note obj)
+        {   // Post and save to the database
+            _db.Notes.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("NoteView");
+        }
 }
 
