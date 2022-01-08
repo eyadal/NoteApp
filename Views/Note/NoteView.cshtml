@@ -3,22 +3,33 @@
     ViewData["Title"] = "NoteView";
 }
 <h3 class="WorkoutHead">“No matter how slow you go you’re still lapping everyone on the couch.”</h3>
-<h4 class="WorkoutHead">Gym Program</h4>
+<div class="container p-3" >
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Gym Program</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Note" asp-action="CreateProgram" class="btn btn-primary"> 
+               <i class="bi bi-plus-square"></i> &nbsp; Create New Program
+                </a>
+        </div>  
+
+    </div>
+    <br/><br/>
+
+
 
 
         @foreach(var obj in Model)
         {
-            <div class="ProgramHead" width="30%">
-               <h5>
-                    @obj.NoteTitle
-                </h5>
-                 <p>
-                    @obj.NoteText
-                    </p>
-                    <p>
-                    @obj.Day
-                    </p>
+            <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+                <div class="card-header">@obj.NoteTitle</div>
+                <div class="card-body">
+                <h4 class="card-title">@obj.NoteText</h4>
+                <p class="card-text">@obj.Day</p>
+                </div>
             </div>
         }
 
 
+</div>

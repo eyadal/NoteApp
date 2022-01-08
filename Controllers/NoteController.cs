@@ -18,5 +18,10 @@ namespace NoteApp.Controllers;
             IEnumerable<Note> objNoteList = _db.Notes;
             return View(objNoteList);
         }
+
+        public IActionResult CreateProgram()
+    {
+        return View();
+    }
 }
 

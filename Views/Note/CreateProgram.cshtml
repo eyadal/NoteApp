@@ -1,0 +1,28 @@
+﻿@model Note
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">
+                Create Gym Program
+            </h2>
+        </div>
+        <div class=" mb-3 list-group-item list-group-item-action">
+            <label asp-for="NoteTitle"></label>
+            <input asp-for="NoteTitle" class="form-control" />
+        </div>
+        <div class=" mb-3 list-group-item list-group-item-action">
+            <label asp-for="NoteText"></label>
+            <input asp-for="NoteText" class="form-control" />
+        </div>
+        <div class=" mb-3 list-group-item list-group-item-action">
+            <label asp-for="Day"></label>
+            <input asp-for="Day" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        <a asp-controller="Note" asp-action="NoteView" class="btn btn-secondary" style="width:150px">
+            Back to Program
+        </a>
+    </div>
+
+</form>
