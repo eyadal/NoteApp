@@ -9,7 +9,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     // Get the Connection string by the key value
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
-
+// To Get one time compilation
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

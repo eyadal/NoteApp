@@ -1,0 +1,28 @@
+﻿@model Category
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">
+                Create Group Workout
+            </h2>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Workout"></label>
+            <input asp-for="Workout" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Participant"></label>
+            <input asp-for="Participant" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="CreatedDateTime"></label>
+            <input asp-for="CreatedDateTime" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to Workouts
+        </a>
+    </div>
+
+</form>
