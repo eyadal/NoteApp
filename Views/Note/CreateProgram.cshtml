@@ -7,17 +7,25 @@
                 Create Gym Program
             </h2>
         </div>
+        @*// Validation Summary*@
+        <div asp-validation-summary="All"></div>
         <div class=" mb-3 list-group-item list-group-item-action">
             <label asp-for="NoteTitle"></label>
             <input asp-for="NoteTitle" class="form-control" />
+            <span asp-validation-for="NoteTitle" class="text-danger"></span>
+
         </div>
         <div class=" mb-3 list-group-item list-group-item-action">
             <label asp-for="NoteText"></label>
             <input asp-for="NoteText" class="form-control" />
+            <span asp-validation-for="NoteText" class="text-danger"></span>
+
         </div>
         <div class=" mb-3 list-group-item list-group-item-action">
             <label asp-for="Day"></label>
             <input asp-for="Day" class="form-control" />
+            <span asp-validation-for="Day" class="text-danger"></span>
+
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
         <a asp-controller="Note" asp-action="NoteView" class="btn btn-secondary" style="width:150px">

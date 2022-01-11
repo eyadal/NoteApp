@@ -7,17 +7,24 @@
                 Create Group Workout
             </h2>
         </div>
+        @*// Validation Summary*@
+        <div asp-validation-summary="All"></div>
         <div class=" mb-3 list-group-item list-group-item-action">
             <label asp-for="Workout"></label>
             <input asp-for="Workout" class="form-control" />
+            <span asp-validation-for="Workout" class="text-danger"></span>
         </div>
         <div class=" mb-3 list-group-item list-group-item-action">
             <label asp-for="Participant"></label>
             <input asp-for="Participant" class="form-control" />
+            <span asp-validation-for="Participant" class="text-danger"></span>
+
         </div>
         <div class=" mb-3 list-group-item list-group-item-action">
             <label asp-for="CreatedDateTime"></label>
             <input asp-for="CreatedDateTime" class="form-control" />
+            <span asp-validation-for="CreatedDateTime" class="text-danger"></span>
+
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
         <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">

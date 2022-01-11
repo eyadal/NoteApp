@@ -23,14 +23,26 @@ namespace NoteApp.Controllers
         {
             return View();
         }
+
         // Post
         [HttpPost]
         [ValidateAntiForgeryToken]
+        // Post and save to the database
         public IActionResult Create(Category obj)
-        {   // Post and save to the database
-            _db.Categories.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+        {
+            // Custom Validation
+            if (obj.Workout == obj.Participant.ToString()) 
+            {
+                ModelState.AddModelError("Workout","Workout name can not be a number.");
+            }
+            // If validation
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
         }
     }
 }

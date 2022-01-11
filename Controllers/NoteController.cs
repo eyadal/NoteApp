@@ -28,9 +28,13 @@ namespace NoteApp.Controllers;
         [ValidateAntiForgeryToken]
         public IActionResult CreateProgram(Note obj)
         {   // Post and save to the database
+
+        if (ModelState.IsValid) { 
             _db.Notes.Add(obj);
             _db.SaveChanges();
             return RedirectToAction("NoteView");
         }
+        return View(obj);
+    }
 }
 
