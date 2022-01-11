@@ -30,12 +30,12 @@ namespace NoteApp.Controllers
         // Post and save to the database
         public IActionResult Create(Category obj)
         {
-            // Custom Validation
-            if (obj.Workout == obj.Participant.ToString()) 
+            // Custom Validation Server Side
+            if (obj.Workout != obj.Participant.ToString() || obj.Workout == obj.Participant.ToString()) 
             {
                 ModelState.AddModelError("Workout","Workout name can not be a number.");
             }
-            // If validation
+            // If validation Server Side
             if (ModelState.IsValid)
             {
                 _db.Categories.Add(obj);

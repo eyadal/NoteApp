@@ -26,9 +26,15 @@ namespace NoteApp.Controllers;
         // Post
         [HttpPost]
         [ValidateAntiForgeryToken]
+        // Post and save to the database
         public IActionResult CreateProgram(Note obj)
-        {   // Post and save to the database
+        {
+        if (obj.NoteTitle != "" && obj.NoteText != "")
+        {
+            ModelState.AddModelError("NoteTitle NoteText","Fields can not be empty!");
+        }
 
+        // If validation Server Side
         if (ModelState.IsValid) { 
             _db.Notes.Add(obj);
             _db.SaveChanges();
