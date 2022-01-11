@@ -1,33 +1,28 @@
 ﻿@model Note
 
-<form method="post">
+<form method="post" asp-action="DeletePost">
+    <input  asp-for="Id" hidden />
     <div class="border p-3 mt-4">
         <div class="row pb-2">
             <h1 class="text-primary">
-                Create Gym Program
+                Delete Gym Program
             </h1>
         </div>
         @*// Validation Summary*@
         <div asp-validation-summary="All"></div>
         <div class=" mb-3 list-group-item list-group-item-action">
             <label asp-for="NoteTitle"></label>
-            <input asp-for="NoteTitle" class="form-control" />
-            <span asp-validation-for="NoteTitle" class="text-danger"></span>
-
+            <input asp-for="NoteTitle" disabled class="form-control" />
         </div>
         <div class=" mb-3 list-group-item list-group-item-action">
             <label asp-for="NoteText"></label>
-            <input asp-for="NoteText" class="form-control" />
-            <span asp-validation-for="NoteText" class="text-danger"></span>
-
+            <input asp-for="NoteText" disabled class="form-control" />
         </div>
         <div class=" mb-3 list-group-item list-group-item-action">
             <label asp-for="Day"></label>
-            <input asp-for="Day" class="form-control" />
-            <span asp-validation-for="Day" class="text-danger"></span>
-
+            <input asp-for="Day" disabled class="form-control" />
         </div>
-        <button type="submit" class="btn btn-success" style="width:150px">Create</button>
+        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
         <a asp-controller="Note" asp-action="NoteView" class="btn btn-info" style="width:150px">
             Back to Program
         </a>
