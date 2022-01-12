@@ -29,7 +29,7 @@ public class NoteController : Controller
     // Post and save to the database
     public IActionResult CreateProgram(Note obj)
     {
-        if (obj.NoteTitle != "" && obj.NoteText != "")
+        if (obj.NoteTitle == "" && obj.NoteText == "")
         {
             ModelState.AddModelError("NoteTitle NoteText", "Fields can not be empty!");
         }
@@ -39,6 +39,7 @@ public class NoteController : Controller
         {
             _db.Notes.Add(obj);
             _db.SaveChanges();
+            TempData["success"] = "Note created successfully";
             return RedirectToAction("NoteView");
         }
         return View(obj);
@@ -79,6 +80,7 @@ public class NoteController : Controller
         {
             _db.Notes.Update(obj);
             _db.SaveChanges();
+            TempData["success"] = "Note updated successfully";
             return RedirectToAction("NoteView");
         }
         return View(obj);
@@ -115,7 +117,8 @@ public class NoteController : Controller
         // If validation Server Side
             _db.Notes.Remove(obj);
             _db.SaveChanges();
-            return RedirectToAction("NoteView");
+        TempData["success"] = "Note deleted successfully";
+        return RedirectToAction("NoteView");
       
     }
 }
