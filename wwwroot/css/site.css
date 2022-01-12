@@ -35,3 +35,28 @@ footer {
     width: 100%;
     background: #999;
 }
+#home{
+  height: 100vh;
+  width: 100vw;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+  background-image: url("/Images/gym-bg.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+
+}
+#home-text{
+  position:absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.1px);
+  -webkit-backdrop-filter: blur(5.1px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 50px 0;
+}

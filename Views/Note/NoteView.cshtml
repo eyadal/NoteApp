@@ -6,7 +6,7 @@
 
 <div class="container p-3" >
     <div class="row pt-4">
-        <div class="col-6">
+        <div class="col-4">
             <h1 class="text-primary">Gym Program</h1>
         </div>
         <div class="col-6 text-end">
@@ -14,21 +14,19 @@
                <i class="bi bi-plus-square"></i> &nbsp; Create New Program
                 </a>
         </div>  
+        <div>
 
-    </div>
-    <br/><br/>
+            <input type="text" placeholder='Search note...'class="col-sm-12 col-lg-5 p-2" />
+        </div>
 
-
-
-
-        @foreach(var obj in Model)
+         @foreach(var obj in Model)
         {
-            <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+            <div class="card text-white bg-info mb-3 col-sm-12 col-md-5 m-3 col-lg-3" @*style="max-width: 20rem;*@ >
                 <div class="card-header">@obj.NoteTitle</div>
-                <div class="card-body">
-                <h4 class="card-title">@obj.NoteText</h4>
-                <p class="card-text">@obj.Day</p>
-                </div>
+                    <div class="card-body">
+                    <h4 class="card-title">@obj.NoteText</h4>
+                    <p class="card-text">@obj.Day</p>
+                    </div>
                     <div class="w-75 btn-group" role="group">
                         <a asp-controller="Note" asp-action="Edit" asp-route-id="@obj.Id"
                         class="btn btn-secondary btn-sm mx-2">
@@ -41,6 +39,14 @@
                     </div>
             </div>
         }
+
+    </div>
+    <br/><br/>
+
+
+
+
+       
 
 
 </div>

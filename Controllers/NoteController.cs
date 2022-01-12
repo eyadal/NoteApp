@@ -18,6 +18,7 @@ public class NoteController : Controller
         IEnumerable<Note> objNoteList = _db.Notes;
         return View(objNoteList);
     }
+     
     // Get
     public IActionResult CreateProgram()
     {
