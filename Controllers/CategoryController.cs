@@ -13,11 +13,21 @@ namespace NoteApp.Controllers;
             _db = db;
         }
         // retrieve all the categories information from the tables.
-        public IActionResult Index()
+        public IActionResult Index(string searchCategory)
         {
+            if (String.IsNullOrEmpty(searchCategory))
+            {
             IEnumerable<Category> objCategoryList = _db.Categories;
             return View(objCategoryList);
+            }
+            else
+            {
+                IEnumerable<Category> objCategoryList = _db.Categories;
+                return View(objCategoryList.Where(category =>
+                category.Workout.Contains(searchCategory)));
+            }
         }
+
         // Get
         public IActionResult Create()
         {

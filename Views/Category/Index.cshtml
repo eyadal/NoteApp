@@ -23,9 +23,10 @@
         </div>  
 
     </div>
-    <div>
-        <input type="text" placeholder='Search note...'class="col-sm-12 col-lg-5 p-2" />
-    </div>
+        <form asp-controller="Category" asp-action="Index">
+            <input type="text" name="searchCategory" placeholder='Search workout...'class="col-sm-12 col-lg-5 p-2" />
+            <input type="submit" value="Search" />
+        </form>
     <br/><br/>
 
 

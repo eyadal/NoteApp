@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NoteApp.Data;
 using NoteApp.Models;
 
@@ -13,10 +14,21 @@ public class NoteController : Controller
         _db = db;
     }
     // retrieve all the notes information from the tables.
-    public IActionResult NoteView()
+    public IActionResult NoteView(string searchNote)
     {
-        IEnumerable<Note> objNoteList = _db.Notes;
-        return View(objNoteList);
+        if(String.IsNullOrEmpty(searchNote))
+        {
+            IEnumerable  <Note>  objNoteList = _db.Notes;
+            return View(objNoteList);
+        }
+        else
+        {
+            IEnumerable<Note> objNoteList = _db.Notes;
+            return View(objNoteList.Where(note =>
+            note.NoteTitle.ToLower().ToUpper().Contains(searchNote)
+            || note.NoteText.ToLower().ToUpper().Contains(searchNote)
+            || note.Day.ToLower().ToUpper().Contains(searchNote)));
+        }
     }
      
     // Get
@@ -65,7 +77,7 @@ public class NoteController : Controller
         }
         return View(noteFromDb);
     }
-    // Post
+    
     [HttpPost]
     [ValidateAntiForgeryToken]
     // Post and save to the database
@@ -76,7 +88,7 @@ public class NoteController : Controller
             ModelState.AddModelError("NoteTitle NoteText", "Fields can not be empty!");
         }
 
-        // If validation Server Side
+        // Validation Server Side
         if (ModelState.IsValid)
         {
             _db.Notes.Update(obj);
@@ -87,7 +99,7 @@ public class NoteController : Controller
         return View(obj);
     }
 
-    // Edit
+    // Delete
     public IActionResult Delete(int? id)
     {
         if (id == null || id == 0)
@@ -115,9 +127,9 @@ public class NoteController : Controller
         if(obj == null) { 
             return NotFound();
         }
-        // If validation Server Side
-            _db.Notes.Remove(obj);
-            _db.SaveChanges();
+        // Validation Server Side
+        _db.Notes.Remove(obj);
+        _db.SaveChanges();
         TempData["success"] = "Note deleted successfully";
         return RedirectToAction("NoteView");
       
