@@ -23,8 +23,9 @@ namespace NoteApp.Controllers;
             else
             {
                 IEnumerable<Category> objCategoryList = _db.Categories;
-                return View(objCategoryList.Where(category =>
-                category.Workout.Contains(searchCategory)));
+            return View(objCategoryList.Where(category =>
+            category.Workout.ToLower().Contains(searchCategory)
+                || category.Workout.ToUpper().Contains(searchCategory)));
             }
         }
 

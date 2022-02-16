@@ -18,16 +18,16 @@ public class NoteController : Controller
     {
         if(String.IsNullOrEmpty(searchNote))
         {
-            IEnumerable  <Note>  objNoteList = _db.Notes;
+            IEnumerable<Note> objNoteList = _db.Notes;
             return View(objNoteList);
         }
         else
         {
             IEnumerable<Note> objNoteList = _db.Notes;
             return View(objNoteList.Where(note =>
-            note.NoteTitle.ToLower().ToUpper().Contains(searchNote)
-            || note.NoteText.ToLower().ToUpper().Contains(searchNote)
-            || note.Day.ToLower().ToUpper().Contains(searchNote)));
+            note.NoteTitle.ToLower().Contains(searchNote)
+            || note.NoteText.ToLower().Contains(searchNote)
+            || note.Day.ToLower().Contains(searchNote)));
         }
     }
      
